@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path'); // Added to fix the path issue
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -12,8 +12,13 @@ let nextId = 3;
 
 // Middleware to parse JSON bodies.
 app.use(express.json());
-// Serve static files from the 'public' directory using an absolute path
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
+
+// EXPLICITLY send index.html for the root route
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // GET /api/issues - Returns the list of issues
 app.get('/api/issues', (req, res) => {
