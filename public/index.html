@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Pulse</title>
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input, select, textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { background-color: #4CAF50; color: white; padding: 12px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Community Pulse</h1>
+    <p>Report and view local issues.</p>
+
+    <h2>Report an Issue</h2>
+    <form id="issueForm">
+        <div class="form-group">
+            <label for="issueType">Issue Type:</label>
+            <select id="issueType" required>
+                <option value="">Select an issue...</option>
+                <option value="Pothole">Pothole</option>
+                <option value="Broken Streetlight">Broken Streetlight</option>
+                <option value="Graffiti">Graffiti</option>
+                <option value="Trash Overflow">Trash Overflow</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="location">Location (Nearest street/landmark):</label>
+            <input type="text" id="location" required placeholder="e.g., Near the library on Main St">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description (Optional):</label>
+            <textarea id="description" rows="3"></textarea>
+        </div>
+
+        <button type="submit">Submit Report</button>
+    </form>
+
+    <div id="message"></div>
+
+    <hr>
+
+    <h2>Recently Reported Issues</h2>
+    <div id="issue-list">
+        <!-- Issues will be loaded here by JavaScript -->
+    </div>
+
+    <!-- Link our JavaScript files -->
+    <script src="app.js"></script>
+</body>
+</html>
